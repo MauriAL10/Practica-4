@@ -1,8 +1,8 @@
 using System;
 
-namespace Practica4
+namespace UPB.PR4.Logic.Models
 {
-    public class Student
+    public class Group
     {
         public String Name { get; set; }
     }
