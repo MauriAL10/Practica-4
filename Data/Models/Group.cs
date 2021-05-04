@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace UPB.PR4.Logic.Models
+namespace UPB.PR4.Data.Models
 {
     public class Group
     {

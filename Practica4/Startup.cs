@@ -14,6 +14,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
+using UPB.PR4.Logic.Managers;
+using UPB.PR4.Data;
+
 namespace Practica4
 {
     public class Startup
@@ -33,6 +36,9 @@ namespace Practica4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<InDBContext, DbContext>();
+            services.AddSingleton<InGroupManager, GroupManager>();
+
             services.AddControllers();
             services.AddSwaggerGen(p =>
             {

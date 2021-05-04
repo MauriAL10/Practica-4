@@ -15,11 +15,12 @@ namespace Practica4.Controllers
     public class GroupController : ControllerBase
     {
         private readonly IConfiguration _config;
-        private readonly GroupManager _groupManager;
-        public GroupController(IConfiguration config)
+        private readonly InGroupManager _groupManager;
+        public GroupController(IConfiguration config, InGroupManager groupManager)
         {
             _config = config;
-            _groupManager = new GroupManager();
+            _groupManager = groupManager;
+            Console.Out.WriteLine($"Project: {_config.GetSection("ProjectTitle").Value}");
         }
 
         [HttpGet]
@@ -29,9 +30,9 @@ namespace Practica4.Controllers
         }
 
         [HttpPost]
-        public Group CreateGroup([FromBody] string groupName)
+        public Group CreateGroup([FromBody] Group group)
         {
-            return _groupManager.CreateGroup(groupName);
+            return _groupManager.CreateGroup(group);
         }
 
         [HttpPut]
